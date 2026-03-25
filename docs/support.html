@@ -37,6 +37,7 @@
     article#en { order: 2; }
     article#zh { order: 3; }
     footer { order: 4; }
+    .lang-hidden { display: none; }
     .hero, article, footer {
       background: var(--panel);
       border: 1px solid var(--border);
@@ -72,6 +73,27 @@
       margin-top: 1rem;
       color: var(--muted);
       font-size: 0.92rem;
+    }
+    .lang-switch {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+    }
+    .lang-switch a {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 700;
+      opacity: 0.55;
+    }
+    .lang-switch a.active {
+      opacity: 1;
+    }
+    .lang-switch a:hover {
+      text-decoration: underline;
     }
     .actions {
       display: flex;
@@ -171,6 +193,11 @@
       <h1>Support / 技术支持</h1>
       <p class="sub">ShootAI / ShotAI is a basketball shot tracking and analysis app that turns training footage into clearer stats, clips, and feedback.</p>
       <p class="meta">最后更新 / Last updated: 2026年3月21日 · March 21, 2026</p>
+      <nav class="lang-switch" aria-label="Language switch">
+        <a href="#en" data-lang="en">English</a>
+        <span aria-hidden="true">·</span>
+        <a href="#zh" data-lang="zh">简体中文</a>
+      </nav>
       <div class="actions">
         <a class="btn btn-primary" href="mailto:yaozhenxing@yy.com?subject=ShootAI%20Support">Email Support / 发送支持邮件</a>
         <a class="btn btn-secondary" href="privacy-policy.html">Privacy Policy / 查看隐私政策</a>
@@ -229,5 +256,42 @@
       This page is the public support page for ShootAI and can be used as the Support URL in App Store Connect.
     </footer>
   </div>
+  <script>
+    (function () {
+      const sections = {
+        en: document.getElementById("en"),
+        zh: document.getElementById("zh")
+      };
+      const links = document.querySelectorAll(".lang-switch a[data-lang]");
+
+      function resolveLanguage() {
+        const hash = window.location.hash.replace("#", "");
+        if (hash === "en" || hash === "zh") return hash;
+        return navigator.language && navigator.language.toLowerCase().startsWith("zh") ? "zh" : "en";
+      }
+
+      function applyLanguage(language) {
+        const selected = language === "zh" ? "zh" : "en";
+        Object.entries(sections).forEach(([key, section]) => {
+          section.classList.toggle("lang-hidden", key !== selected);
+        });
+        links.forEach((link) => {
+          link.classList.toggle("active", link.dataset.lang === selected);
+        });
+        document.documentElement.lang = selected === "zh" ? "zh-Hans" : "en";
+      }
+
+      links.forEach((link) => {
+        link.addEventListener("click", function (event) {
+          event.preventDefault();
+          const language = link.dataset.lang;
+          history.replaceState(null, "", "#" + language);
+          applyLanguage(language);
+        });
+      });
+
+      applyLanguage(resolveLanguage());
+    }());
+  </script>
 </body>
 </html>

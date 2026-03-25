@@ -56,7 +56,9 @@
       text-decoration: none;
       font-size: 0.9rem;
       font-weight: 600;
+      opacity: 0.55;
     }
+    .lang-switch a.active { opacity: 1; }
     .lang-switch a:hover { text-decoration: underline; }
     article { margin-bottom: 3rem; }
     article[lang="zh-Hans"] {
@@ -66,6 +68,7 @@
     article#en { order: 1; }
     article#zh { order: 2; }
     footer { order: 3; }
+    .lang-hidden { display: none; }
     h2 {
       font-size: 1.1rem;
       font-weight: 700;
@@ -95,9 +98,9 @@
     <h1 id="top">ShootAI / ShotAI — Terms of Use (EULA) · 使用条款（EULA）</h1>
     <p class="updated">最后更新 / Last updated: 2026年3月25日 · March 25, 2026</p>
     <nav class="lang-switch" aria-label="语言跳转">
-      <a href="#en">English</a>
+      <a href="#en" data-lang="en">English</a>
       <span aria-hidden="true">·</span>
-      <a href="#zh">简体中文</a>
+      <a href="#zh" data-lang="zh">简体中文</a>
     </nav>
 
     <article id="zh" lang="zh-Hans">
@@ -176,5 +179,42 @@ Note: Pricing, duration, trials, and promotional offers are shown in the in-app 
       <div>© 2026 ShootAI / ShotAI</div>
     </footer>
   </div>
+  <script>
+    (function () {
+      const sections = {
+        en: document.getElementById("en"),
+        zh: document.getElementById("zh")
+      };
+      const links = document.querySelectorAll(".lang-switch a[data-lang]");
+
+      function resolveLanguage() {
+        const hash = window.location.hash.replace("#", "");
+        if (hash === "en" || hash === "zh") return hash;
+        return navigator.language && navigator.language.toLowerCase().startsWith("zh") ? "zh" : "en";
+      }
+
+      function applyLanguage(language) {
+        const selected = language === "zh" ? "zh" : "en";
+        Object.entries(sections).forEach(([key, section]) => {
+          section.classList.toggle("lang-hidden", key !== selected);
+        });
+        links.forEach((link) => {
+          link.classList.toggle("active", link.dataset.lang === selected);
+        });
+        document.documentElement.lang = selected === "zh" ? "zh-Hans" : "en";
+      }
+
+      links.forEach((link) => {
+        link.addEventListener("click", function (event) {
+          event.preventDefault();
+          const language = link.dataset.lang;
+          history.replaceState(null, "", "#" + language);
+          applyLanguage(language);
+        });
+      });
+
+      applyLanguage(resolveLanguage());
+    }());
+  </script>
 </body>
 </html>

@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="ShootAI Privacy Policy | ShotAI 隐私政策" />
-  <title>Privacy Policy · 隐私政策 — ShootAI / ShotAI</title>
+  <meta id="page-description" name="description" content="ShootAI Privacy Policy" data-en="ShootAI Privacy Policy" data-zh="ShotAI 隐私政策" />
+  <title>ShootAI Privacy Policy</title>
   <style>
     :root {
       --text: #1a1a1a;
@@ -45,11 +45,39 @@
     }
     .lang-switch {
       display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.75rem;
       margin-bottom: 2rem;
       padding-bottom: 1rem;
       border-bottom: 1px solid var(--border);
+    }
+    .lang-label {
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .lang-select {
+      appearance: none;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: #fff;
+      color: var(--text);
+      font: inherit;
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 0.55rem 2.25rem 0.55rem 0.95rem;
+      background-image:
+        linear-gradient(45deg, transparent 50%, var(--muted) 50%),
+        linear-gradient(135deg, var(--muted) 50%, transparent 50%);
+      background-position:
+        calc(100% - 18px) calc(50% - 2px),
+        calc(100% - 12px) calc(50% - 2px);
+      background-size: 6px 6px, 6px 6px;
+      background-repeat: no-repeat;
+    }
+    .lang-select:focus {
+      outline: 2px solid rgba(10, 95, 56, 0.18);
+      outline-offset: 2px;
     }
     .lang-switch a {
       color: var(--accent);
@@ -94,12 +122,14 @@
 </head>
 <body>
   <div class="wrap">
-    <h1 id="top">ShootAI / ShotAI — Privacy Policy / 隐私政策</h1>
-    <p class="updated">最后更新 / Last updated: 2026年3月15日 · March 15, 2026</p>
+    <h1 id="top" data-en="{app} Privacy Policy" data-zh="{app} 隐私政策">ShootAI Privacy Policy</h1>
+    <p class="updated" data-en="Last updated: March 15, 2026" data-zh="最后更新：2026年3月15日">Last updated: March 15, 2026</p>
     <nav class="lang-switch" aria-label="语言跳转">
-      <a href="#en" data-lang="en">English</a>
-      <span aria-hidden="true">·</span>
-      <a href="#zh" data-lang="zh">简体中文</a>
+      <label class="lang-label" for="lang-select" data-en="Language" data-zh="语言">Language</label>
+      <select id="lang-select" class="lang-select" aria-label="Language">
+        <option value="en">English</option>
+        <option value="zh">简体中文</option>
+      </select>
     </nav>
 
     <article id="zh" lang="zh-Hans">
@@ -321,18 +351,20 @@ We will process requests within a reasonable time after verifying your identity,
     </article>
 
     <footer>
-      <p>本页面与 ShotAI 应用内《隐私政策》内容保持一致，供 App Store 审核及用户查阅。</p>
-      <p>This page matches the in-app Privacy Policy for ShootAI (App Store review and user reference).</p>
-      <p><a href="#top">返回顶部 / Back to top</a></p>
+      <p data-en="This page matches the in-app Privacy Policy for {app} (App Store review and user reference)." data-zh="本页面与 {app} 应用内《隐私政策》内容保持一致，供 App Store 审核及用户查阅。">This page matches the in-app Privacy Policy for ShootAI (App Store review and user reference).</p>
+      <p><a href="#top" data-en="Back to top" data-zh="返回顶部">Back to top</a></p>
     </footer>
   </div>
   <script>
     (function () {
+      const appNames = { en: "ShootAI", zh: "ShotAI" };
       const sections = {
         en: document.getElementById("en"),
         zh: document.getElementById("zh")
       };
-      const links = document.querySelectorAll(".lang-switch a[data-lang]");
+      const languageSelect = document.getElementById("lang-select");
+      const descriptionMeta = document.getElementById("page-description");
+      const localizedNodes = document.querySelectorAll("[data-en][data-zh]");
 
       function resolveLanguage() {
         const hash = window.location.hash.replace("#", "");
@@ -340,24 +372,28 @@ We will process requests within a reasonable time after verifying your identity,
         return navigator.language && navigator.language.toLowerCase().startsWith("zh") ? "zh" : "en";
       }
 
+      function templateFor(node, language) {
+        const template = node.getAttribute("data-" + language) || "";
+        return template.replace(/\{app\}/g, appNames[language]);
+      }
+
       function applyLanguage(language) {
         const selected = language === "zh" ? "zh" : "en";
         Object.entries(sections).forEach(([key, section]) => {
           section.classList.toggle("lang-hidden", key !== selected);
         });
-        links.forEach((link) => {
-          link.classList.toggle("active", link.dataset.lang === selected);
+        localizedNodes.forEach((node) => {
+          node.textContent = templateFor(node, selected);
         });
+        languageSelect.value = selected;
+        document.title = templateFor(document.getElementById("top"), selected);
+        descriptionMeta.setAttribute("content", templateFor(descriptionMeta, selected));
         document.documentElement.lang = selected === "zh" ? "zh-Hans" : "en";
       }
 
-      links.forEach((link) => {
-        link.addEventListener("click", function (event) {
-          event.preventDefault();
-          const language = link.dataset.lang;
-          history.replaceState(null, "", "#" + language);
-          applyLanguage(language);
-        });
+      languageSelect.addEventListener("change", function () {
+        history.replaceState(null, "", "#" + languageSelect.value);
+        applyLanguage(languageSelect.value);
       });
 
       applyLanguage(resolveLanguage());

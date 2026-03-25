@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="ShootAI / ShotAI 技术支持 | ShootAI / ShotAI Support" />
-  <title>Support · 技术支持 — ShootAI / ShotAI</title>
+  <meta id="page-description" name="description" content="ShootAI Support" data-en="ShootAI Support" data-zh="ShotAI 技术支持" />
+  <title>ShootAI Support</title>
   <style>
     :root {
       --bg: #f4f6f3;
@@ -76,24 +76,39 @@
     }
     .lang-switch {
       display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.75rem;
       margin-top: 1rem;
       padding-top: 1rem;
       border-top: 1px solid var(--border);
     }
-    .lang-switch a {
-      color: var(--accent);
-      text-decoration: none;
+    .lang-label {
+      color: var(--muted);
       font-size: 0.9rem;
-      font-weight: 700;
-      opacity: 0.55;
+      font-weight: 600;
     }
-    .lang-switch a.active {
-      opacity: 1;
+    .lang-select {
+      appearance: none;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: #fff;
+      color: var(--text);
+      font: inherit;
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 0.55rem 2.25rem 0.55rem 0.95rem;
+      background-image:
+        linear-gradient(45deg, transparent 50%, var(--muted) 50%),
+        linear-gradient(135deg, var(--muted) 50%, transparent 50%);
+      background-position:
+        calc(100% - 18px) calc(50% - 2px),
+        calc(100% - 12px) calc(50% - 2px);
+      background-size: 6px 6px, 6px 6px;
+      background-repeat: no-repeat;
     }
-    .lang-switch a:hover {
-      text-decoration: underline;
+    .lang-select:focus {
+      outline: 2px solid rgba(21, 94, 59, 0.18);
+      outline-offset: 2px;
     }
     .actions {
       display: flex;
@@ -189,34 +204,36 @@
 <body>
   <div class="wrap">
     <section class="hero">
-      <div class="eyebrow">ShootAI / ShotAI Support</div>
-      <h1>Support / 技术支持</h1>
-      <p class="sub">ShootAI / ShotAI is a basketball shot tracking and analysis app that turns training footage into clearer stats, clips, and feedback.</p>
-      <p class="meta">最后更新 / Last updated: 2026年3月21日 · March 21, 2026</p>
+      <div class="eyebrow" data-en="{app} Support" data-zh="{app} 技术支持">ShootAI Support</div>
+      <h1 id="top" data-en="Support" data-zh="技术支持">Support</h1>
+      <p class="sub" data-en="{app} is a basketball shot tracking and analysis app that turns training footage into clearer stats, clips, and feedback." data-zh="{app} 是一款篮球投篮记录与分析应用，帮助你把训练视频转化为更清晰的统计、片段和反馈。">ShootAI is a basketball shot tracking and analysis app that turns training footage into clearer stats, clips, and feedback.</p>
+      <p class="meta" data-en="Last updated: March 21, 2026" data-zh="最后更新：2026年3月21日">Last updated: March 21, 2026</p>
       <nav class="lang-switch" aria-label="Language switch">
-        <a href="#en" data-lang="en">English</a>
-        <span aria-hidden="true">·</span>
-        <a href="#zh" data-lang="zh">简体中文</a>
+        <label class="lang-label" for="lang-select" data-en="Language" data-zh="语言">Language</label>
+        <select id="lang-select" class="lang-select" aria-label="Language">
+          <option value="en">English</option>
+          <option value="zh">简体中文</option>
+        </select>
       </nav>
       <div class="actions">
-        <a class="btn btn-primary" href="mailto:yaozhenxing@yy.com?subject=ShootAI%20Support">Email Support / 发送支持邮件</a>
-        <a class="btn btn-secondary" href="privacy-policy.html">Privacy Policy / 查看隐私政策</a>
-        <a class="btn btn-secondary" href="terms-of-use.html">Terms of Use (EULA) / 使用条款（EULA）</a>
+        <a class="btn btn-primary" href="mailto:yaozhenxing@yy.com?subject=ShootAI%20Support" data-en="Email Support" data-zh="发送支持邮件">Email Support</a>
+        <a class="btn btn-secondary" href="privacy-policy.html" data-en="Privacy Policy" data-zh="隐私政策">Privacy Policy</a>
+        <a class="btn btn-secondary" href="terms-of-use.html" data-en="Terms of Use (EULA)" data-zh="使用条款（EULA）">Terms of Use (EULA)</a>
       </div>
     </section>
 
     <div class="grid">
       <section class="card">
-        <h2>首选联系渠道</h2>
-        <p>应用内“我的”页中的“帮助与反馈”入口，适合问题反馈、数据删除申请和使用咨询。</p>
+        <h2 data-en="Primary support channel" data-zh="首选联系渠道">Primary support channel</h2>
+        <p data-en="Use the in-app Help & Feedback entry from the Profile tab for issue reports, data deletion requests, and usage questions." data-zh="应用内“我的”页中的“帮助与反馈”入口，适合问题反馈、数据删除申请和使用咨询。">Use the in-app Help & Feedback entry from the Profile tab for issue reports, data deletion requests, and usage questions.</p>
       </section>
       <section class="card">
-        <h2>备用联系邮箱</h2>
+        <h2 data-en="Backup email" data-zh="备用联系邮箱">Backup email</h2>
         <p><a href="mailto:yaozhenxing@yy.com">yaozhenxing@yy.com</a></p>
       </section>
       <section class="card">
-        <h2>适用场景</h2>
-        <p>登录问题、视频导入/导出、分析结果、排行榜同步、会员订阅恢复、隐私和账号删除请求。</p>
+        <h2 data-en="Typical topics" data-zh="适用场景">Typical topics</h2>
+        <p data-en="Sign-in issues, video import/export, analysis results, leaderboard sync, subscription restore, privacy requests, and account deletion." data-zh="登录问题、视频导入/导出、分析结果、排行榜同步、会员订阅恢复、隐私和账号删除请求。">Sign-in issues, video import/export, analysis results, leaderboard sync, subscription restore, privacy requests, and account deletion.</p>
       </section>
     </div>
 
@@ -251,18 +268,21 @@
     </article>
 
     <footer>
-      本页面用于 ShotAI 的公开技术支持展示，可作为 App Store Connect 中的 Support URL。
+      <span data-en="This page is the public support page for {app} and can be used as the Support URL in App Store Connect." data-zh="本页面用于 {app} 的公开技术支持展示，可作为 App Store Connect 中的 Support URL。">This page is the public support page for ShootAI and can be used as the Support URL in App Store Connect.</span>
       <br />
-      This page is the public support page for ShootAI and can be used as the Support URL in App Store Connect.
+      <span data-en="For the best experience, the page automatically follows the browser language and can also be switched manually above." data-zh="页面会自动跟随浏览器语言，也可以通过上方下拉框手动切换。">For the best experience, the page automatically follows the browser language and can also be switched manually above.</span>
     </footer>
   </div>
   <script>
     (function () {
+      const appNames = { en: "ShootAI", zh: "ShotAI" };
       const sections = {
         en: document.getElementById("en"),
         zh: document.getElementById("zh")
       };
-      const links = document.querySelectorAll(".lang-switch a[data-lang]");
+      const languageSelect = document.getElementById("lang-select");
+      const descriptionMeta = document.getElementById("page-description");
+      const localizedNodes = document.querySelectorAll("[data-en][data-zh]");
 
       function resolveLanguage() {
         const hash = window.location.hash.replace("#", "");
@@ -270,24 +290,28 @@
         return navigator.language && navigator.language.toLowerCase().startsWith("zh") ? "zh" : "en";
       }
 
+      function templateFor(node, language) {
+        const template = node.getAttribute("data-" + language) || "";
+        return template.replace(/\{app\}/g, appNames[language]);
+      }
+
       function applyLanguage(language) {
         const selected = language === "zh" ? "zh" : "en";
         Object.entries(sections).forEach(([key, section]) => {
           section.classList.toggle("lang-hidden", key !== selected);
         });
-        links.forEach((link) => {
-          link.classList.toggle("active", link.dataset.lang === selected);
+        localizedNodes.forEach((node) => {
+          node.textContent = templateFor(node, selected);
         });
+        languageSelect.value = selected;
+        document.title = appNames[selected] + " " + (selected === "zh" ? "技术支持" : "Support");
+        descriptionMeta.setAttribute("content", templateFor(descriptionMeta, selected));
         document.documentElement.lang = selected === "zh" ? "zh-Hans" : "en";
       }
 
-      links.forEach((link) => {
-        link.addEventListener("click", function (event) {
-          event.preventDefault();
-          const language = link.dataset.lang;
-          history.replaceState(null, "", "#" + language);
-          applyLanguage(language);
-        });
+      languageSelect.addEventListener("change", function () {
+        history.replaceState(null, "", "#" + languageSelect.value);
+        applyLanguage(languageSelect.value);
       });
 
       applyLanguage(resolveLanguage());

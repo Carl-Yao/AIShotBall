@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="ShootAI Terms of Use (EULA) | ShotAI 使用条款（EULA）" />
-  <title>使用条款（EULA） · Terms of Use (EULA) — ShootAI / ShotAI</title>
+  <title>Terms of Use (EULA) · 使用条款（EULA） — ShootAI / ShotAI</title>
   <style>
     :root {
       --text: #1a1a1a;
@@ -23,6 +23,8 @@
       background: var(--bg);
     }
     .wrap {
+      display: flex;
+      flex-direction: column;
       max-width: 42rem;
       margin: 0 auto;
       padding: 2rem 1.25rem 4rem;
@@ -57,10 +59,13 @@
     }
     .lang-switch a:hover { text-decoration: underline; }
     article { margin-bottom: 3rem; }
-    article[lang="en"] {
+    article[lang="zh-Hans"] {
       padding-top: 2rem;
       border-top: 2px solid var(--border);
     }
+    article#en { order: 1; }
+    article#zh { order: 2; }
+    footer { order: 3; }
     h2 {
       font-size: 1.1rem;
       font-weight: 700;
@@ -87,12 +92,12 @@
 </head>
 <body>
   <div class="wrap">
-    <h1 id="top">ShootAI / ShotAI — 使用条款（EULA） · Terms of Use (EULA)</h1>
+    <h1 id="top">ShootAI / ShotAI — Terms of Use (EULA) · 使用条款（EULA）</h1>
     <p class="updated">最后更新 / Last updated: 2026年3月25日 · March 25, 2026</p>
     <nav class="lang-switch" aria-label="语言跳转">
-      <a href="#zh">简体中文</a>
-      <span aria-hidden="true">·</span>
       <a href="#en">English</a>
+      <span aria-hidden="true">·</span>
+      <a href="#zh">简体中文</a>
     </nav>
 
     <article id="zh" lang="zh-Hans">

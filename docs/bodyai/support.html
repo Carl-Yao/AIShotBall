@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta id="page-description" name="description" content="BodyAI Support" data-en="BodyAI Support" data-zh="BodyAI 技术支持" />
+  <title>BodyAI Support</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #5c5c5c;
+      --border: #e8e8e8;
+      --bg: #fafafa;
+      --accent: #0a5f38;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      font-size: 16px;
+      line-height:1.65;
+      color: var(--text);
+      background: var(--bg);
+    }
+    .wrap {
+      display: flex;
+      flex-direction: column;
+      max-width: 42rem;
+      margin: 0 auto;
+      padding: 2rem 1.25rem 4rem;
+      background: #fff;
+      min-height: 100vh;
+      box-shadow: 0 0 0 1px var(--border);
+    }
+    h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 0 0 0.5rem;
+      letter-spacing: -0.02em;
+    }
+    .updated {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+    }
+    .lang-switch {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .lang-label {
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .lang-select {
+      appearance: none;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: #fff;
+      color: var(--text);
+      font: inherit;
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 0.55rem 2.25rem 0.55rem 0.95rem;
+      background-image:
+        linear-gradient(45deg, transparent 50%, var(--muted) 50%),
+        linear-gradient(135deg, var(--muted) 50%, transparent 50%);
+      background-position:
+        calc(100% - 18px) calc(50% - 2px),
+        calc(100% - 12px) calc(50% - 2px);
+      background-size: 6px 6px, 6px 6px;
+      background-repeat: no-repeat;
+    }
+    .lang-select:focus {
+      outline: 2px solid rgba(10, 95, 56, 0.18);
+      outline-offset: 2px;
+    }
+    .lang-switch a {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      opacity: 0.55;
+    }
+    .lang-switch a.active { opacity: 1; }
+    .lang-switch a:hover { text-decoration: underline; }
+    article { margin-bottom: 3rem; }
+    article[lang="zh-Hans"] {
+      padding-top: 2rem;
+      border-top: 2px solid var(--border);
+    }
+    article#en { order: 1; }
+    article#zh { order: 2; }
+    footer { order: 3; }
+    .lang-hidden { display: none; }
+    h2 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin: 2rem 0 0.75rem;
+      color: var(--text);
+    }
+    h2:first-of-type { margin-top: 0; }
+    p, ul {
+      margin: 0 0 1rem;
+      color: var(--text);
+    }
+    ul { padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .preline { white-space: pre-line; }
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1 id="top" data-en="{app} Support" data-zh="{app} 技术支持">BodyAI Support</h1>
+    <p class="updated" data-en="Last updated: November 3, 2026" data-zh="最后更新：2026年11月3日">Last updated: November 3, 2026</p>
+    <nav class="lang-switch" aria-label="语言跳转">
+      <label class="lang-label" for="lang-select" data-en="Language" data-zh="语言">Language</label>
+      <select id="lang-select" class="lang-select" aria-label="Language">
+        <option value="en">English</option>
+        <option value="zh">简体中文</option>
+      </select>
+    </nav>
+
+    <article id="zh" lang="zh-Hans">
+<h2>联系 BodyAI 支持</h2><p class="preline">使用 BodyAI 遇到问题或有功能建议，欢迎发送邮件至 <a href="mailto:2322443162@qq.com?subject=BodyAI%20Support">2322443162@qq.com</a>。此邮箱也受理隐私咨询与数据删除请求。</p>
+<h2>反馈时请提供</h2><p class="preline">请说明设备型号、iOS 版本、BodyAI 版本、出现问题的大致时间，以及操作步骤、预期结果和实际结果。如果界面显示错误码或请求标识，可一并附上。
+您可以自愿附上已遮挡个人信息的截图。请勿发送密码、支付信息或未经必要遮挡的人脸、身体照片；首次反馈通常不需要原始照片或视频。</p>
+<h2>拍摄与导入</h2><p class="preline">无法拍摄时，请在 iOS「设置」中检查 BodyAI 的相机权限。导入时请选择设备可读取的照片或视频。拍摄请保持人物清晰、光线均匀，并按页面指引保留需要观察的部位。
+如仍无法处理，请告知素材类型、时长或尺寸及界面提示，无需先发送原始素材。</p>
+<h2>云端分析与个人模特</h2><p class="preline">云端解读需要网络连接和相应授权。请在「我的」检查「允许云端解读」是否开启；查看历史报告不会自动重新分析，视频评估需手动发起。
+个人模特生成是独立任务。如遇等待超时、连接中断或结果不明确，请保留错误信息与任务标识并联系我们，避免连续重复发起生成。</p>
+<h2>购买与订阅</h2><p class="preline">可在「我的」进入「分析权益」并使用「恢复购买」恢复当前 Apple 账户的订阅权益。单次分析额度保存在本机，不能跨设备恢复；删除报告不会重置次数。
+管理或取消自动续订，请打开 <a href="https://apps.apple.com/account/subscriptions">Apple 订阅管理</a>。删除 BodyAI 不会取消订阅。遇到已付款但权益未显示的问题，请提供商品名称、购买时间与错误提示，不要提供银行卡资料。</p>
+<h2>报告与数据管理</h2><p class="preline">报告和素材主要保存在本机。删除或卸载前，请先导出需要保留的报告。
+「我的」中的「清除全部报告和素材」用于删除评估记录；个人模特需在其独立页面删除。删除本地记录不会撤回已上传的数据。关于上传范围与数据删除，请阅读 <a href="privacy-policy.html#zh">BodyAI 隐私政策</a>，或通过上述邮箱联系我们。</p>
+<h2>使用范围</h2><p class="preline">BodyAI 帮助您观察和记录身体状态。照片、视频和 AI 解读存在局限，不能替代专业医疗评估。技术支持用于处理应用使用问题。</p>
+</article>
+
+    <article id="en" lang="en">
+<h2>Contact BodyAI support</h2><p class="preline">For help using BodyAI or to share a suggestion, email <a href="mailto:2322443162@qq.com?subject=BodyAI%20Support">2322443162@qq.com</a>. You can also use this address for privacy questions and data deletion requests.</p>
+<h2>What to include</h2><p class="preline">Please include your device model, iOS version, BodyAI version, approximate time of the issue, steps to reproduce it, and expected versus actual results. Include any error code or request identifier shown in the App.
+You may optionally attach a screenshot with personal information concealed. Do not send passwords, payment details, or unredacted face or body photos. Original photos and videos are usually unnecessary for an initial report.</p>
+<h2>Capture and import</h2><p class="preline">If capture is unavailable, check BodyAI camera permissions in iOS Settings. Select photos or videos that are accessible on your device. Keep the person clear and evenly lit, and follow the capture instructions for the relevant body areas.
+If processing still fails, tell us the media type, duration or dimensions, and the error shown. You do not need to send the original media initially.</p>
+<h2>Cloud analysis and personal models</h2><p class="preline">Cloud interpretation requires a network connection and the relevant permission. Check Allow cloud interpretation under My Space. Viewing saved reports does not automatically request another analysis; video assessments require a manual cloud request.
+Personal model generation is a separate task. If it times out, disconnects, or has an uncertain result, keep the error details and task identifier and contact us. Avoid repeatedly starting generation.</p>
+<h2>Purchases and subscriptions</h2><p class="preline">Open Analysis entitlements under My Space and use Restore purchases to restore subscription entitlements for your current Apple account. Single-analysis credits are stored locally and cannot be restored across devices. Deleting reports does not reset usage.
+Manage or cancel renewal through <a href="https://apps.apple.com/account/subscriptions">Apple subscription settings</a>. Uninstalling BodyAI does not cancel a subscription. If a payment succeeded but the entitlement is missing, include the product name, purchase time and error message. Do not send bank card details.</p>
+<h2>Reports and data controls</h2><p class="preline">Reports and media are primarily stored on your device. Export reports you want to keep before deleting records or uninstalling.
+Clear all reports and media under My Space removes assessment records. Personal models must be deleted separately on their own screen. Local deletion does not recall data already uploaded. Read the <a href="privacy-policy.html#en">BodyAI Privacy Policy</a> for upload and deletion details, or contact us at the email above.</p>
+<h2>Scope of use</h2><p class="preline">BodyAI supports personal observation and records. Photos, videos and AI interpretations have limitations and do not replace professional medical assessment. Technical support addresses App usage issues.</p>
+</article>
+
+    <footer>
+      <p data-en="Help with {app}, purchases and data requests." data-zh="{app} 使用帮助、购买问题与数据请求。">Help with BodyAI, purchases and data requests.</p>
+      <p><a href="#top" data-en="Back to top" data-zh="返回顶部">Back to top</a></p>
+    </footer>
+  </div>
+  <script>
+    (function () {
+      const appNames = { en: "BodyAI", zh: "BodyAI" };
+      const sections = {
+        en: document.getElementById("en"),
+        zh: document.getElementById("zh")
+      };
+      const languageSelect = document.getElementById("lang-select");
+      const descriptionMeta = document.getElementById("page-description");
+      const localizedNodes = document.querySelectorAll("[data-en][data-zh]");
+
+      function resolveLanguage() {
+        const hash = window.location.hash.replace("#", "");
+        if (hash === "en" || hash === "zh") return hash;
+        return navigator.language && navigator.language.toLowerCase().startsWith("zh") ? "zh" : "en";
+      }
+
+      function templateFor(node, language) {
+        const template = node.getAttribute("data-" + language) || "";
+        return template.replace(/\{app\}/g, appNames[language]);
+      }
+
+      function applyLanguage(language) {
+        const selected = language === "zh" ? "zh" : "en";
+        Object.entries(sections).forEach(([key, section]) => {
+          section.classList.toggle("lang-hidden", key !== selected);
+        });
+        localizedNodes.forEach((node) => {
+          node.textContent = templateFor(node, selected);
+        });
+        languageSelect.value = selected;
+        document.title = templateFor(document.getElementById("top"), selected);
+        descriptionMeta.setAttribute("content", templateFor(descriptionMeta, selected));
+        document.documentElement.lang = selected === "zh" ? "zh-Hans" : "en";
+      }
+
+      languageSelect.addEventListener("change", function () {
+        history.replaceState(null, "", "#" + languageSelect.value);
+        applyLanguage(languageSelect.value);
+      });
+
+      window.addEventListener("hashchange", () => {
+        if (["#zh", "#en"].includes(window.location.hash)) applyLanguage(resolveLanguage());
+      });
+      applyLanguage(resolveLanguage());
+    }());
+  </script>
+</body>
+</html>
